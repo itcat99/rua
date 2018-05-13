@@ -1,0 +1,11 @@
+@import '../../global/styles/index.scss';
+
+.rua-input {
+  color: red;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: aqua;
+    outline: none;
+  }
+}
