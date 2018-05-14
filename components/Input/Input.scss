@@ -1,11 +1,14 @@
 @import '../../global/styles/index.scss';
-
 .rua-input {
-  color: red;
-  border-radius: 4px;
-
-  &:focus {
-    border-color: aqua;
-    outline: none;
+  input {
+    vertical-align: middle;
+    &:focus {
+      outline: none;
+    }
+  }
+  & &-prefix {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
   }
 }

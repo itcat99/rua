@@ -8,7 +8,14 @@ class Input extends Component {
   }
 
   render() {
-    return <input className="rua-input" type="text" value={this.props.value} />;
+    const { value, theme = 'default', prefix, ...restProps } = this.props;
+
+    return (
+      <span className={`rua-input rua-input--${theme}`}>
+        {prefix ? <span className="rua-input-prefix">{prefix}</span> : null}
+        <input type="text" defaultValue={value} {...restProps} />
+      </span>
+    );
   }
 }
 

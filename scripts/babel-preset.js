@@ -16,6 +16,9 @@ module.exports = {
         modules: ENV === 'es' ? false : 'commonjs',
       },
     ],
-    'react',
   ],
+  ignore:
+    ENV === 'development'
+      ? ['./components/**/__test__/*']
+      : ['./components/**/demo/*', './components/**/__test__/*'],
 };

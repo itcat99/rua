@@ -17,8 +17,13 @@ function hasComponent(path) {
 }
 program
   .option('<name>', 'Start component development.')
-  .action(async targetName => {
+  .option('-p --port', 'Set the server port number. default:8080')
+  .action(async (targetName, port) => {
     const name = `${targetName.charAt(0).toUpperCase()}${targetName.slice(1)}`;
+    if (typeof port !== 'string') {
+      port = 8080;
+    }
+
     const componentFolderPath = path.resolve(
       __dirname,
       '..',
@@ -29,9 +34,9 @@ program
     try {
       await hasComponent(componentFolderPath);
 
-      require('./dev-demo')({
+      require('./dev-server')({
         targetPath: path.join(componentFolderPath, 'demo'),
-        targetName: name,
+        port,
       });
     } catch (err) {
       console.log(chalk.red('======= Error Code ======='));

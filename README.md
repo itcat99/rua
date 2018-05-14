@@ -15,8 +15,9 @@ yarn
 
 yarn new <module name>
 
-yarn start <module name>
+yarn start <module name> -p [port]
 
+# port default: 8080
 # open and enter http://localhost:8080 in your browser.
 ```
 
@@ -68,3 +69,7 @@ yarn format
 - [ ] join `cssModule`
 - [ ] Optimize build
 - [ ] others...
+
+## I WISH
+
+The ultimate goal is to build the project according to the configuration file.
