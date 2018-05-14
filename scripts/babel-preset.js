@@ -16,7 +16,9 @@ module.exports = {
         modules: ENV === 'es' ? false : 'commonjs',
       },
     ],
+    'react',
   ],
+  plugins: ['syntax-object-rest-spread'],
   ignore:
     ENV === 'development'
       ? ['./components/**/__test__/*']

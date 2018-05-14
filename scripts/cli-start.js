@@ -34,7 +34,7 @@ program
     try {
       await hasComponent(componentFolderPath);
 
-      require('./dev-server')({
+      require('./start')({
         targetPath: path.join(componentFolderPath, 'demo'),
         port,
       });

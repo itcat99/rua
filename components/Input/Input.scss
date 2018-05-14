@@ -1,14 +1,17 @@
 @import '../../global/styles/index.scss';
+
 .rua-input {
   input {
     vertical-align: middle;
+
     &:focus {
       outline: none;
     }
   }
+
   & &-prefix {
     display: inline-block;
-    vertical-align: middle;
     margin-right: 5px;
+    vertical-align: middle;
   }
 }

@@ -1,7 +1,5 @@
 {
   "presets": [
-    "./scripts/babel-preset.js",
-    "react"
-  ],
-  "plugins": ["syntax-object-rest-spread"]
+    "./scripts/babel-preset.js"
+  ]
 }
