@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const execa = require('execa');
 const chalk = require('chalk');
+const shell = require('shelljs');
 
 function handleFilePaths(finallyPath, name) {
   fs.readdir(finallyPath, (err, files) => {
@@ -78,27 +79,21 @@ module.exports = detail => {
   const { name, targetPath } = detail;
   const finallyPath = path.join(targetPath, name);
 
-  execa('rm', ['-rf', finallyPath])
-    .then(() => {
-      return execa('mkdir', [finallyPath]);
-    })
-    .then(() => {
-      return execa('cp', [
-        '-r',
-        `${path.resolve(__dirname, '..', 'template')}/.`,
-        finallyPath,
-      ]);
-    })
-    .then(() => {
-      handleFilePaths(finallyPath, name);
-      console.log(
-        chalk.green(
-          `✅  Create new Module SUCCESS! path: ${path.join(targetPath, name)}`,
-        ),
-      );
-      return execa('yarn', ['format:js']);
-    })
+  shell.rm(finallyPath);
+  shell.mkdir(finallyPath);
+  shell.cp('-r', path.resolve(__dirname, '..', 'template', '*'), finallyPath);
+  handleFilePaths(finallyPath, name);
+  console.log(
+    chalk.green(
+      `✅  Create new Module SUCCESS! path: ${path.join(targetPath, name)}`,
+    ),
+  );
+
+  execa('yarn', ['format:js'])
     .then(() => {
       console.log(chalk.green(`✅  Format js SUCCESS!`));
+    })
+    .catch(err => {
+      console.error(chalk.red(`❌  ${err}`));
     });
 };

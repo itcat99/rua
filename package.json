@@ -5,7 +5,7 @@
   "module": "./es/index.js",
   "scripts": {
     "new": "node ./scripts/cli-create.js",
-    "start": "NODE_ENV=development BABEL_ENV=development node ./scripts/cli-start.js",
+    "start": "cross-env NODE_ENV=development BABEL_ENV=development node ./scripts/cli-start.js",
     "format": "yarn run format:js && yarn run format:css",
     "format:js": "eslint --fix --color ./components/**/*.js ./components/**/*.jsx",
     "format:css": "stylelint --fix --color ./components/**/*.scss",
@@ -18,7 +18,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn run format -- ",
+      "yarn run format",
       "git add"
     ]
   },
@@ -52,6 +52,7 @@
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "prettier": "1.12.1",
     "sass-loader": "^7.0.1",
+    "shelljs": "^0.8.2",
     "style-loader": "^0.21.0",
     "stylelint": "^9.2.0",
     "stylelint-config-recess-order": "^2.0.0",
@@ -66,6 +67,7 @@
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "styled-components": "^3.2.6"
   }
 }
