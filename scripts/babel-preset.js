@@ -18,7 +18,7 @@ module.exports = {
     ],
     'react',
   ],
-  plugins: ['syntax-object-rest-spread'],
+  plugins: ['syntax-object-rest-spread', 'transform-class-properties'],
   ignore:
     ENV === 'development'
       ? ['./components/**/__test__/*']

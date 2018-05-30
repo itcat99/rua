@@ -9,5 +9,8 @@
         "mixin", "extend", "content"
       ]
     }]
-  }
+  },
+  "ignoreFiles":[
+    "*.js","*.jsx"
+  ]
 }

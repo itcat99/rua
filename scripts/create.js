@@ -43,7 +43,7 @@ function handleFile(filePath, name) {
 
   if (
     filePath.match(/demo\/.+(js|html)?$/) ||
-    filePath.match(new RegExp(`${name}/index.js`)) ||
+    filePath.match(new RegExp(`${name}(\\/|\\\\)index.js`)) ||
     filePath.indexOf('README.md') >= 0
   ) {
     return replace(filePath, name);
